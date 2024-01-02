@@ -1,0 +1,9 @@
+a=10
+b=10
+c=a+b
+d=a-b
+e=a/b
+f=a*b
+print(id(a))
+print(id(b))
+print(c,d,e,f)
