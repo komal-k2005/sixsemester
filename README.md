@@ -1,2 +1,0 @@
-# sixsemester
- python program
