@@ -1,0 +1,5 @@
+t1=(10,20,30,40)
+print("minimum number")
+print(min(t1))
+print("maximum number")
+print(max(t1))
