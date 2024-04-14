@@ -34,7 +34,7 @@ class Snake:
     def update(self):
         cur = self.get_head_position()
         x, y = self.direction
-        new = (((cur[0] + (x*GRID_SIZE)) % WIDTH), (cur[1] + (y*GRID_SIZE)) % HEIGHT)
+        new = (((cur[0] + (x * GRID_SIZE)) % WIDTH), (cur[1] + (y * GRID_SIZE)) % HEIGHT)
         if len(self.positions) > 2 and new in self.positions[2:]:
             self.reset()
         else:
@@ -59,8 +59,8 @@ class Food:
         self.randomize_position()
 
     def randomize_position(self):
-        self.position = (random.randint(0, (WIDTH//GRID_SIZE)-1) * GRID_SIZE,
-                         random.randint(0, (HEIGHT//GRID_SIZE)-1) * GRID_SIZE)
+        self.position = (random.randint(0, (WIDTH // GRID_SIZE) - 1) * GRID_SIZE,
+                         random.randint(0, (HEIGHT // GRID_SIZE) - 1) * GRID_SIZE)
 
     def render(self, surface):
         pygame.draw.rect(surface, self.color, (self.position[0], self.position[1], GRID_SIZE, GRID_SIZE))
@@ -86,13 +86,13 @@ def main():
                 pygame.quit()
                 quit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP and snake.direction != DOWN:
                     snake.direction = UP
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_DOWN and snake.direction != UP:
                     snake.direction = DOWN
-                elif event.key == pygame.K_LEFT:
+                elif event.key == pygame.K_LEFT and snake.direction != RIGHT:
                     snake.direction = LEFT
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_RIGHT and snake.direction != LEFT:
                     snake.direction = RIGHT
 
         snake.update()
